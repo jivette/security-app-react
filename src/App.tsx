@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import logo from './bg.jpg';
 import header from './header.jpg';
 import './App.css';
-import { Card, CardContent, Typography, Grid, CardMedia, IconButtonProps, styled, Container } from '@mui/material';
+import { Card, CardContent, Typography, Grid, CardMedia, Container } from '@mui/material';
 import axios from 'axios';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     if(!data){
       getData();
     }
-  }, [])
+  }, [data])
   
   return (
     <div className="App">
