@@ -32,7 +32,7 @@ function App() {
           <br />
         <Container>
           <Grid container spacing={6}>
-
+            <p>Registros</p>
             {data && data.map((content: {fact: string}) =>{
               return (
                 <Grid item xs={4}>
