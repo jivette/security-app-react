@@ -1,23 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import logo from './bg.jpg';
+import header from './header.jpg';
 import './App.css';
+import { Card, CardContent, Typography, Grid, CardMedia, IconButtonProps, styled, Container } from '@mui/material';
+import axios from 'axios';
 
 function App() {
+   const [data, setData] = React.useState<any | undefined>();
+
+  const getData = async () => {
+    axios.get("https://catfact.ninja/facts").then(response =>{
+    console.log(response.data.data);  
+    setData(response.data.data);
+    });
+      
+  }
+  useEffect(() => {
+    if(!data){
+      getData();
+    }
+  }, [])
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <Grid container spacing={6}>
+            <div className="content-header">
+              <img src={header} alt="header" width="100%"/>
+            </div>
+          </Grid>
+          <br />
+        <Container>
+          <Grid container spacing={6}>
+
+            {data && data.map((content: {fact: string}) =>{
+              return (
+                <Grid item xs={4}>
+                  <Card sx={{ maxWidth: 345 }}>
+                    <CardMedia
+                      component="img"
+                      height="194"
+                      image={logo}
+                      alt="Paella dish"
+                    />
+                    <CardContent>
+                      <Typography variant="body2" color="text.secondary">
+                        {content.fact}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+            )})}
+          </Grid>
+        </Container>
       </header>
     </div>
   );

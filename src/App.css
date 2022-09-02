@@ -12,9 +12,28 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.content-header {
+  position: relative;
+}
+.content-header:before {
+    background: #0000008f;
+      content: "Sitio de seguridad informatica";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: impact;
+      font-size: 42px;
+}
 
 .App-header {
-  background-color: #282c34;
+  background-color: #dedede;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
