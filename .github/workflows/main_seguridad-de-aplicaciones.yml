@@ -60,4 +60,4 @@ jobs:
           app-name: 'seguridad-de-aplicaciones'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_34D2049864EE40AC89F834124783183B }}
-          package: .
+          package: release.zip
